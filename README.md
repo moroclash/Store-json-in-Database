@@ -57,12 +57,13 @@ cat pre_main.py >> main.py
          #store recent_trades in mongo DB
          Mstore.store_data(category_name="recent_trades",ws=recent_trades)
          sleep(10)
-   ```
-      3. Run program
-      ```
-      python main.py
-      ```
-      4. it will store market_depth ans recent_trades in DB
+    ```
+    3. Run program
+    ```
+    python main.py
+    ```
+    4. it will store market_depth ans recent_trades in DB
+
   - **Sqlite** :
     1. you should run **SqliteDB_Setupe.py** file at first time to create DataBase
     2. go to **main.py** file and remove this command symbol from **ln 21** to **ln 37**
