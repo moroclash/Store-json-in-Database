@@ -93,6 +93,42 @@ cat pre_main.py >> main.py
     4. it will store market_depth ans recent_trades in **sqliteDB**
 
 
+## Retrieve Data :
+
+* from **MongoDB**
+  1. import **Mongo_StoreData**
+  2. use function
+  ```python
+     # it take three parameters
+     # 1. category_name such as "market_depth" or "recent_trades"
+     # 2. timeStamp  it's the timestamp that you search
+     # 3. symbol  it's the symbol that you search such as "XBTUSD"
+     # it will retrive data and display it
+     retrive_data(category_name , timeStamp , symbol)
+  ```
+
+* from **Sqlite**
+  1. import **sqlite_StoreData**
+  2. use functions
+  ```python
+     # to retrieve market_depth
+     # it take three parameters
+     # 1. category_name such as "market_depth"
+     # 2. timeStamp  it's the timestamp that you search
+     # 3. symbol  it's the symbol that you search such as "XBTUSD"
+     # it will retrive data and display it
+     retrive_market_depth(TimeStamp,symbol,category_name)
+
+     # to retrieve recent_trades
+     # it take three parameters
+     # 1. category_name such as "recent_trades"
+     # 2. timeStamp  it's the timestamp that you search
+     # 3. symbol  it's the symbol that you search such as "XBTUSD"
+     # it will retrive data and display it
+     retrive_recent_trades(TimeStamp,symbol,category_name)
+
+  ```
+
 ## MongoDB VS sqliteDB :
 * MongoDB :
 ###### have high performance and high speed it will store data even **API** change his Data format in runtime , but it will have duplicated data.
