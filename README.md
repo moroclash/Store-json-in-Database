@@ -1,8 +1,10 @@
-# Store **BitMex api** for realtime data in DB
+# Store **BitMex api** and **poloniex.com** for realtime data in DB
 
 ###### you can store it in **MonogDB** or **Sqlite**
 
 ###### this Program work on Linux
+
+# BitMex.com api
 
 ## prerequisite :
 * download **Python Adapter for BitMEX Realtime Data**
@@ -10,7 +12,7 @@ get it from [here](https://github.com/BitMEX/api-connectors/tree/master/official
 * setup it
 
 
-## file explain :
+## files explain :
 1. **Schema.png** :- it is DB schema for retional DB.
 2. **Init_Data.py** :- Initial data this have shared data such as **DB_name** and some data used to setup sqliteDB.
 3. **Mongo_StoreData.py** :- have function that used to **Store** and **Retrieve** from MongoDB.
@@ -31,13 +33,14 @@ git clone https://github.com/moroclash/Store-json-in-Database.git
 cat pre_main.py >> main.py
 ```
 * you shoud put your **mail** and **password** to can connect with **API** , put them in file **main.py**
-> login=None, password=None     #line 16 in main.py file
+> login=None, password=None               #line 16 in main.py file
 
 * to store Data in DB
   - **MongoDB** :
     1. check that you have **MongoDB** on your PC , install it if not exist
     2. go to **main.py** file and remove this command symbol from **ln 40** to **ln 56**
-    ># to store in MongoDB remove the comming comments
+    ```python
+     # to store in MongoDB remove the comming comments
      import Mongo_StoreData as Mstore
      # Run forever
      while(ws.ws.sock.connected):
@@ -54,7 +57,7 @@ cat pre_main.py >> main.py
          #store recent_trades in mongo DB
          Mstore.store_data(category_name="recent_trades",ws=recent_trades)
          sleep(10)
-
+   ```
       3. Run program
       ```
       python main.py
@@ -63,7 +66,8 @@ cat pre_main.py >> main.py
   - **Sqlite** :
     1. you should run **SqliteDB_Setupe.py** file at first time to create DataBase
     2. go to **main.py** file and remove this command symbol from **ln 21** to **ln 37**
-    ># to save in sqlite Database remove the comming comments
+    ```python
+     # to save in sqlite Database remove the comming comments
      import sqlite_StoreData as Sstore
      # Run forever
      while(ws.ws.sock.connected):
@@ -80,12 +84,12 @@ cat pre_main.py >> main.py
          #store recent_trades in mongo DB
          Sstore.store_recent_trades(recent_trades=recent_trades,category="recent_trades")
          sleep(10)
-
-      3. Run program
-      ```
-      python main.py
-      ```
-      4. it will store market_depth ans recent_trades in **sqliteDB**
+    ```
+    3. Run program
+    ```
+    python main.py
+    ```
+    4. it will store market_depth ans recent_trades in **sqliteDB**
 
 
 ## MongoDB VS sqliteDB :
@@ -93,3 +97,9 @@ cat pre_main.py >> main.py
 ###### have high performance and high speed it will store data even **API** change his Data format in runtime , but it will have duplicated data.
 * Sqlite :
 ###### have less performance and speed than MongoDB , but it is very efficient in using memory space because it don't have any duplicated data and it will store data even **API** change his Data format in runtime .
+
+
+
+
+# Poloniex.com api  
+###### soon .
