@@ -1,4 +1,4 @@
-# Store **BitMex api** and **poloniex.com** for realtime data in DB
+# Store **BitMex api** and **poloniex.com** realtime data in DB
 
 ###### you can store it in **MonogDB** or **Sqlite**
 
